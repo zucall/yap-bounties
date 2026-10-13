@@ -1,0 +1,37 @@
+{
+  "name": "@zukall/yap-bounties",
+  "version": "1.0.0",
+  "description": "Named, versioned geographic grid collections for YAP-based addressing, including ZAP country and province grids.",
+  "author": { "name": "Lesly Revenge" },
+  "license": "MIT",
+  "type": "module",
+  "repository": { "type": "git", "url": "git+https://github.com/zucall/yap-bounties.git" },
+  "homepage": "https://github.com/zucall/yap-bounties#readme",
+  "bugs": { "url": "https://github.com/zucall/yap-bounties/issues" },
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "typesVersions": { "*": { "zap": ["dist/cjs/zap/index.d.ts"] } },
+  "exports": {
+    ".": {
+      "import": { "types": "./dist/esm/index.d.ts", "default": "./dist/esm/index.js" },
+      "require": { "types": "./dist/cjs/index.d.ts", "default": "./dist/cjs/index.js" }
+    },
+    "./zap": {
+      "import": { "types": "./dist/esm/zap/index.d.ts", "default": "./dist/esm/zap/index.js" },
+      "require": { "types": "./dist/cjs/zap/index.d.ts", "default": "./dist/cjs/zap/index.js" }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": ["dist", "README.md", "LICENSE", "THIRD-PARTY-NOTICES.md"],
+  "sideEffects": false,
+  "engines": { "node": ">=20" },
+  "keywords": ["zukall", "yap", "zap", "bounties", "addressing", "geographic-grids", "coordinates", "countries", "provinces", "typescript"],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "prepack": "npm run build"
+  },
+  "devDependencies": { "typescript": "5.9.3" },
+  "publishConfig": { "access": "public", "registry": "https://registry.npmjs.org/" }
+}
